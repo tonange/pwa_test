@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>standalone PWA Display Test</title>
+    <meta name="description" content="See how standalone Progressive Web Apps (PWAs) look and feel on your devices and platforms. Try it on Android, iOS, Linux, macOS, Windows, and more.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <link rel="stylesheet" href="../../PWADisplayTest/styles/normalize.css">
+    <link rel="stylesheet" href="../../PWADisplayTest/styles/main.css">
+
+    <meta name="theme-color" content="#3c0a86">
+    <link rel="icon" href="../../PWADisplayTest/images/favicon.ico">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__row">
+            <h1 class="header__title">PWA Display Test</h1>
+        </div>
+        <nav class="header__row header__nav" data-display-mode="standalone">
+            <a class="header__link" href="../../PWADisplayTest/fullscreen/" data-display-mode="fullscreen">fullscreen</a>
+            <a class="header__link" href="../../PWADisplayTest/standalone/" data-display-mode="standalone">standalone</a>
+            <a class="header__link" href="../../PWADisplayTest/minimal-ui/" data-display-mode="minimal-ui">minimal-ui</a>
+            <a class="header__link" href="../../PWADisplayTest/browser/" data-display-mode="browser">browser</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <p class="mb--0">Manifest display mode:
+            <strong>standalone</strong>
+        </p>
+
+        <p class="mb--0">
+            Actual display mode:
+            <strong>
+                <data value="fullscreen">fullscreen</data>
+                <data value="standalone">standalone</data>
+                <data value="minimal-ui">minimal-ui</data>
+                <data value="browser">browser</data>
+            </strong>
+        </p>
+    </main>
+
+    <div class="mb--1">
+      <div class="mb--2">
+        <strong>Scope Test pages</strong>
+      </div>
+      <div class="mb--3">
+        <a href="http://google.com">google</a><br>
+        <a href="test.html">same location</a><br>
+        <a href="../../index.html">root</a><br>
+        <a href="../../ServiceWorkerState/index.html">sibling</a><br>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <a hidden href="#" class="install-link">Install App</a>
+    </footer>
+
+    <script src="../../PWADisplayTest/scripts/main.js"></script>
+
+    <script>
+        // Register service worker
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../../PWADisplayTest/sw.js", { scope: '../../PWADisplayTest/' });
+            });
+        }
+    </script>
+</body>
+
+</html>
